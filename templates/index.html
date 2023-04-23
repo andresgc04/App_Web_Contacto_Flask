@@ -1,0 +1,60 @@
+{% with messages = get_flashed_messages() %} 
+{% if messages %} 
+{% for message in messages %}
+<p>{{message}}</p>
+{% endfor %} 
+{% endif %}
+{% endwith %}
+
+<form action="/add_contact" method="POST">
+  <input
+    type="text"
+    id="fullName"
+    name="fullName"
+    placeholder="Ingrese el nombre completo del contacto."
+  />
+  <input
+    type="text"
+    id="phoneNumber"
+    name="phoneNumber"
+    placeholder="Ingrese el número telefonico del contacto."
+  />
+  <input
+    type="text"
+    id="email"
+    name="email"
+    placeholder="Ingrese el email del contacto."
+  />
+
+  <button type="submit">Guardar contacto</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombre Completo</td>
+            <td>No. Télefono</td>
+            <td>Email</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts_data %}
+        <tr>
+            <td>
+                {{ contact['full_name'] }}
+            </td>
+            <td>
+                {{contact['phone_number']}}
+            </td>
+            <td>
+                {{contact['email']}}
+            </td>
+            <td>
+                <a href="/edit/{{contact['contact_id']}}">Editar</a>
+                <a href="/delete/{{contact['contact_id']}}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

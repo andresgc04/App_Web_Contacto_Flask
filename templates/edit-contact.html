@@ -1,0 +1,25 @@
+<form action="/update_contact/{{contact_data['contact_id']}}" method="POST">
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      placeholder="Ingrese el nombre completo del contacto."
+      value="{{contact_data['full_name']}}"
+    />
+    <input
+      type="text"
+      id="phoneNumber"
+      name="phoneNumber"
+      placeholder="Ingrese el número telefonico del contacto."
+      value="{{contact_data['phone_number']}}"
+    />
+    <input
+      type="text"
+      id="email"
+      name="email"
+      placeholder="Ingrese el email del contacto."
+      value="{{contact_data['email']}}"
+    />
+  
+    <button type="submit">Guardar contacto</button>
+  </form>
