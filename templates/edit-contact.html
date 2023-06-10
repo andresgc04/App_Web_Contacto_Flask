@@ -1,25 +1,45 @@
-<form action="/update_contact/{{contact_data['contact_id']}}" method="POST">
-    <input
-      type="text"
-      id="fullName"
-      name="fullName"
-      placeholder="Ingrese el nombre completo del contacto."
-      value="{{contact_data['full_name']}}"
-    />
-    <input
-      type="text"
-      id="phoneNumber"
-      name="phoneNumber"
-      placeholder="Ingrese el número telefonico del contacto."
-      value="{{contact_data['phone_number']}}"
-    />
-    <input
-      type="text"
-      id="email"
-      name="email"
-      placeholder="Ingrese el email del contacto."
-      value="{{contact_data['email']}}"
-    />
-  
-    <button type="submit">Guardar contacto</button>
-  </form>
+{% extends 'layout.html' %} {% block body %}
+<div class="col-md-4 offset-md-4">
+  <div class="card card-body">
+    <form action="/update_contact/{{contact_data['contact_id']}}" method="POST">
+      <div class="form-group">
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          placeholder="Ingrese el nombre completo del contacto."
+          value="{{contact_data['full_name']}}"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="Ingrese el número telefonico del contacto."
+          value="{{contact_data['phone_number']}}"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group mb-2">
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Ingrese el email del contacto."
+          value="{{contact_data['email']}}"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <div class="d-grid gap-1">
+          <button type="submit" class="btn btn-success">
+            Guardar contacto
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
